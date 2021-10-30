@@ -5,4 +5,11 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./public_html/:/usr/local/apache2/htdocs/
+      - mydata:/usr/local/apache2/htdocs/
+
+volumes:
+  mydata:
+    driver: azure_file
+    driver_opts:
+      share_name: is-project
+      storage_account_name: webprj
